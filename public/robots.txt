@@ -1,4 +1,10 @@
+# Not ready to be indexed yet. Replace this whole file with the block below
+# once the content is real:
+#
+#   User-agent: *
+#   Allow: /
+#   Disallow: /studio
+#   Disallow: /api
+#
 User-agent: *
-Allow: /
-Disallow: /studio
-Disallow: /api
+Disallow: /

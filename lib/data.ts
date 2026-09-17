@@ -11,7 +11,8 @@ export interface Post { title: string; date: string; url: string }
 
 export interface SiteData {
   profile: { name: string; username: string; title: string; email: string; github: string; linkedin: string; site: string };
-  stats: { commits: number; repos: number; stars: number; prs: number; featured: number; years: string };
+  /** null means the sync could not verify it; the section omits it rather than printing 0. */
+  stats: { commits: number | null; repos: number; stars: number; prs: number | null; featured: number; years: string };
   languages: { name: string; pct: number; color: string }[];
   contributions: number[];
   repos: Repo[];

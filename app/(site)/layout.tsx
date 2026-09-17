@@ -11,7 +11,10 @@ export const metadata: Metadata = {
   title: `${data.profile.name} — ${data.profile.title}`,
   description: "Selected work, open-source projects and experience.",
   openGraph: { type: "website", title: `${data.profile.name} — ${data.profile.title}`, url: data.profile.site },
-  robots: { index: true, follow: true },
+  // NOT INDEXED YET. The site is live so it can be edited at /studio, but it
+  // should not appear in search results until the content is real.
+  // Flip both values to true when you are ready to be found.
+  robots: { index: false, follow: false },
 };
 
 export default async function SiteLayout({ children }: { children: React.ReactNode }) {

@@ -100,13 +100,37 @@ async function main() {
     ...(restPct > 0 ? [{ name: "Other", pct: restPct, color: "#8C93A0" }] : []),
   ];
 
+  // Every number the site displays is fetched, never carried over from the
+  // placeholder snapshot. A portfolio that states invented metrics is worse
+  // than one that omits them, so anything unavailable is set to null and the
+  // GitHub section skips it.
+  const profile = await gh<{ created_at: string }>(`/users/${USER}`);
+  const since = new Date(Date.now() - 365 * 864e5).toISOString().slice(0, 10);
+
+  const count = async (path: string): Promise<number | null> => {
+    try {
+      const r = await gh<{ total_count: number }>(path);
+      return r.total_count;
+    } catch {
+      return null; // search API is rate limited hard when unauthenticated
+    }
+  };
+
+  const commits = await count(`/search/commits?q=author:${USER}+author-date:>=${since}&per_page=1`);
+  const prs = await count(`/search/issues?q=author:${USER}+type:pr+is:merged&per_page=1`);
+
+  const firstYear = new Date(profile.created_at).getFullYear();
+  const years = Math.max(1, new Date().getFullYear() - firstYear);
+
   snapshot.data.repos = repos;
   snapshot.data.languages = languages;
   snapshot.data.stats = {
-    ...snapshot.data.stats,
+    commits,
+    prs,
     repos: live.length,
     stars: live.reduce((sum, r) => sum + r.stargazers_count, 0),
     featured: repos.filter((r) => !r.hidden).length,
+    years: `${years} yrs`,
   };
   snapshot.data.profile.username = USER;
   snapshot.data.profile.github = `https://github.com/${USER}`;

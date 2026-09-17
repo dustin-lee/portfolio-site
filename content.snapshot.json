@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-14T00:00:00.000Z",
+  "generatedAt": "2026-09-17T04:45:03.084Z",
   "config": {
     "theme": "paper",
     "sections": [
@@ -13,49 +13,73 @@
         "id": "hero-1",
         "type": "hero",
         "visible": true,
-        "settings": {}
+        "settings": {
+          "layout": "Stacked left",
+          "eyebrow": "",
+          "headline": "Dustin Lee",
+          "sub": "Software engineer. This site is a work in progress.",
+          "cta": "",
+          "cta2": "GitHub",
+          "portrait": false,
+          "stats": false,
+          "pad": 104
+        }
       },
       {
         "id": "stack-1",
         "type": "stack",
         "visible": true,
-        "settings": {}
+        "settings": {
+          "style": "Static grid",
+          "items": "JavaScript, Swift, Python, HTML, CSS, SQL, Git",
+          "speed": 34
+        }
       },
       {
         "id": "projects-1",
         "type": "projects",
-        "visible": true,
+        "visible": false,
         "settings": {}
       },
       {
         "id": "github-1",
         "type": "github",
-        "visible": true,
+        "visible": false,
         "settings": {}
       },
       {
         "id": "skills-1",
         "type": "skills",
-        "visible": true,
+        "visible": false,
         "settings": {}
       },
       {
         "id": "experience-1",
         "type": "experience",
-        "visible": true,
+        "visible": false,
         "settings": {}
       },
       {
         "id": "contact-1",
         "type": "contact",
         "visible": true,
-        "settings": {}
+        "settings": {
+          "layout": "Card",
+          "headline": "Get in touch",
+          "sub": "The best way to reach me is email.",
+          "email": "dustin.lee.vc@gmail.com",
+          "cta": "Email me",
+          "pad": 72
+        }
       },
       {
         "id": "footer-1",
         "type": "footer",
         "visible": true,
-        "settings": {}
+        "settings": {
+          "text": "© 2026 Dustin Lee",
+          "social": true
+        }
       }
     ]
   },
@@ -64,43 +88,43 @@
       "name": "Dustin Lee",
       "username": "dustin-lee",
       "title": "Full-Stack Engineer",
-      "email": "hello@dustin.dev",
+      "email": "dustin.lee.vc@gmail.com",
       "github": "https://github.com/dustin-lee",
       "linkedin": "https://linkedin.com/in/your-handle",
       "site": "https://dustin.dev"
     },
     "stats": {
-      "commits": 1284,
-      "repos": 34,
-      "stars": 708,
-      "prs": 61,
-      "featured": 6,
-      "years": "7 yrs"
+      "commits": 0,
+      "prs": 0,
+      "repos": 18,
+      "stars": 0,
+      "featured": 0,
+      "years": "10 yrs"
     },
     "languages": [
       {
-        "name": "TypeScript",
-        "pct": 46,
-        "color": "#3178C6"
+        "name": "Swift",
+        "pct": 31,
+        "color": "#F05138"
       },
       {
-        "name": "Go",
-        "pct": 21,
-        "color": "#00ADD8"
+        "name": "HTML",
+        "pct": 25,
+        "color": "#E34C26"
+      },
+      {
+        "name": "JavaScript",
+        "pct": 19,
+        "color": "#E8B339"
       },
       {
         "name": "Python",
-        "pct": 16,
+        "pct": 13,
         "color": "#4B8BBE"
       },
       {
-        "name": "Rust",
-        "pct": 10,
-        "color": "#D2703A"
-      },
-      {
         "name": "Other",
-        "pct": 7,
+        "pct": 12,
         "color": "#8C93A0"
       }
     ],
@@ -199,127 +223,205 @@
     ],
     "repos": [
       {
-        "name": "ledger-sync",
-        "description": "Double-entry reconciliation engine that diffs bank feeds against an internal ledger nightly.",
-        "language": "TypeScript",
-        "color": "#3178C6",
-        "stars": 184,
-        "topics": [
-          "fintech",
-          "postgres",
-          "queues"
-        ],
-        "url": "#",
-        "hidden": false,
-        "sample": true
+        "name": "TableCreationSQL",
+        "description": "SQL Table Create ",
+        "language": null,
+        "color": "#8C93A0",
+        "stars": 0,
+        "topics": [],
+        "url": "https://github.com/dustin-lee/TableCreationSQL",
+        "hidden": true,
+        "pushedAt": "2017-05-09T20:27:57Z"
       },
       {
-        "name": "pulse-metrics",
-        "description": "Drop-in RUM collector shipping Core Web Vitals to ClickHouse in 3 kB gzipped.",
+        "name": "BullCowGameC-",
+        "description": "",
+        "language": null,
+        "color": "#8C93A0",
+        "stars": 0,
+        "topics": [],
+        "url": "https://github.com/dustin-lee/BullCowGameC-",
+        "hidden": true,
+        "pushedAt": "2017-05-02T07:57:19Z"
+      },
+      {
+        "name": "TheBattleshipPython",
+        "description": "",
+        "language": "Python",
+        "color": "#4B8BBE",
+        "stars": 0,
+        "topics": [],
+        "url": "https://github.com/dustin-lee/TheBattleshipPython",
+        "hidden": true,
+        "pushedAt": "2017-04-24T08:55:43Z"
+      },
+      {
+        "name": "PoemGame",
+        "description": "",
+        "language": "HTML",
+        "color": "#E34C26",
+        "stars": 0,
+        "topics": [],
+        "url": "https://github.com/dustin-lee/PoemGame",
+        "hidden": true,
+        "pushedAt": "2017-04-13T02:29:52Z"
+      },
+      {
+        "name": "artstore",
+        "description": "",
+        "language": "HTML",
+        "color": "#E34C26",
+        "stars": 0,
+        "topics": [],
+        "url": "https://github.com/dustin-lee/artstore",
+        "hidden": true,
+        "pushedAt": "2017-02-22T08:35:06Z"
+      },
+      {
+        "name": "cardhunt",
+        "description": "",
+        "language": "Swift",
+        "color": "#F05138",
+        "stars": 0,
+        "topics": [],
+        "url": "https://github.com/dustin-lee/cardhunt",
+        "hidden": true,
+        "pushedAt": "2017-02-13T20:11:50Z"
+      },
+      {
+        "name": "portfolio",
+        "description": "",
+        "language": "CSS",
+        "color": "#563D7C",
+        "stars": 0,
+        "topics": [],
+        "url": "https://github.com/dustin-lee/portfolio",
+        "hidden": true,
+        "pushedAt": "2017-01-31T09:25:57Z"
+      },
+      {
+        "name": "super-duper-octo",
+        "description": "",
+        "language": "CSS",
+        "color": "#563D7C",
+        "stars": 0,
+        "topics": [],
+        "url": "https://github.com/dustin-lee/super-duper-octo",
+        "hidden": true,
+        "pushedAt": "2016-12-17T03:01:23Z"
+      },
+      {
+        "name": "RunASketch",
+        "description": "",
+        "language": "Swift",
+        "color": "#F05138",
+        "stars": 0,
+        "topics": [],
+        "url": "https://github.com/dustin-lee/RunASketch",
+        "hidden": true,
+        "pushedAt": "2016-12-12T20:46:37Z"
+      },
+      {
+        "name": "MakingMoney",
+        "description": "",
+        "language": "Swift",
+        "color": "#F05138",
+        "stars": 0,
+        "topics": [],
+        "url": "https://github.com/dustin-lee/MakingMoney",
+        "hidden": true,
+        "pushedAt": "2016-12-01T21:42:07Z"
+      },
+      {
+        "name": "RandomNumba_and_Name",
+        "description": "",
+        "language": "Swift",
+        "color": "#F05138",
+        "stars": 0,
+        "topics": [],
+        "url": "https://github.com/dustin-lee/RandomNumba_and_Name",
+        "hidden": true,
+        "pushedAt": "2016-12-01T07:23:51Z"
+      },
+      {
+        "name": "first_IOS_app",
+        "description": "",
+        "language": "Swift",
+        "color": "#F05138",
+        "stars": 0,
+        "topics": [],
+        "url": "https://github.com/dustin-lee/first_IOS_app",
+        "hidden": true,
+        "pushedAt": "2016-11-30T23:47:18Z"
+      },
+      {
+        "name": "python_belt_test_wishes",
+        "description": "",
+        "language": "Python",
+        "color": "#4B8BBE",
+        "stars": 0,
+        "topics": [],
+        "url": "https://github.com/dustin-lee/python_belt_test_wishes",
+        "hidden": true,
+        "pushedAt": "2016-11-27T22:18:08Z"
+      },
+      {
+        "name": "MeanExam_Deployment",
+        "description": "",
         "language": "JavaScript",
         "color": "#E8B339",
-        "stars": 241,
-        "topics": [
-          "observability",
-          "performance"
-        ],
-        "url": "#",
-        "hidden": false,
-        "sample": true
+        "stars": 0,
+        "topics": [],
+        "url": "https://github.com/dustin-lee/MeanExam_Deployment",
+        "hidden": true,
+        "pushedAt": "2016-11-21T18:42:57Z"
       },
       {
-        "name": "atlas-ui",
-        "description": "Headless component primitives with a token pipeline that compiles to Tailwind and CSS variables.",
-        "language": "TypeScript",
-        "color": "#3178C6",
-        "stars": 96,
-        "topics": [
-          "react",
-          "design-systems"
-        ],
-        "url": "#",
-        "hidden": false,
-        "sample": true
+        "name": "beltexam_meandeployment",
+        "description": "",
+        "language": "JavaScript",
+        "color": "#E8B339",
+        "stars": 0,
+        "topics": [],
+        "url": "https://github.com/dustin-lee/beltexam_meandeployment",
+        "hidden": true,
+        "pushedAt": "2016-11-20T19:47:15Z"
       },
       {
-        "name": "curbside",
-        "description": "Route-optimizing pickup scheduler \u2014 OR-Tools solver behind a Go API, 40k stops per run.",
-        "language": "Go",
-        "color": "#00ADD8",
-        "stars": 62,
-        "topics": [
-          "optimization",
-          "api"
-        ],
-        "url": "#",
-        "hidden": false,
-        "sample": true
+        "name": "BuildingFactoriesWithFriends",
+        "description": "",
+        "language": "JavaScript",
+        "color": "#E8B339",
+        "stars": 0,
+        "topics": [],
+        "url": "https://github.com/dustin-lee/BuildingFactoriesWithFriends",
+        "hidden": true,
+        "pushedAt": "2016-11-15T19:12:53Z"
       },
       {
-        "name": "sift",
-        "description": "CLI that turns messy CSV exports into typed Parquet with inferred schemas and a diff report.",
-        "language": "Rust",
-        "color": "#D2703A",
-        "stars": 44,
-        "topics": [
-          "cli",
-          "data"
-        ],
-        "url": "#",
-        "hidden": false,
-        "sample": true
+        "name": "basic_repo",
+        "description": "basics",
+        "language": "HTML",
+        "color": "#E34C26",
+        "stars": 0,
+        "topics": [],
+        "url": "https://github.com/dustin-lee/basic_repo",
+        "hidden": true,
+        "pushedAt": "2016-09-28T20:58:11Z"
       },
       {
-        "name": "harbor-deploy",
-        "description": "GitHub Action that builds, signs and promotes containers across three environments.",
-        "language": "Shell",
-        "color": "#89E051",
-        "stars": 31,
-        "topics": [
-          "ci-cd",
-          "devops"
-        ],
-        "url": "#",
-        "hidden": false,
-        "sample": true
+        "name": "firstgitexample",
+        "description": "dogwebpageforfun",
+        "language": "HTML",
+        "color": "#E34C26",
+        "stars": 0,
+        "topics": [],
+        "url": "https://github.com/dustin-lee/firstgitexample",
+        "hidden": true,
+        "pushedAt": "2016-09-28T20:14:14Z"
       }
     ],
-    "roles": [
-      {
-        "when": "2024 \u2014 now",
-        "org": "Northbeam Systems",
-        "role": "Senior Software Engineer",
-        "summary": "Led the migration of a monolith checkout path onto event-driven services; cut p95 latency from 820 ms to 190 ms."
-      },
-      {
-        "when": "2021 \u2014 2024",
-        "org": "Calder Labs",
-        "role": "Full-Stack Engineer",
-        "summary": "Built the internal design system and the CI pipeline behind it \u2014 40+ consumers, zero-downtime releases twice a week."
-      },
-      {
-        "when": "2019 \u2014 2021",
-        "org": "Freelance",
-        "role": "Web Engineer",
-        "summary": "Shipped production React and Node work for six early-stage teams, from first commit through launch."
-      }
-    ],
-    "posts": [
-      {
-        "title": "Why your build step should own the GitHub API, not your browser",
-        "date": "2026-07-02",
-        "url": "#"
-      },
-      {
-        "title": "A section schema is the whole trick behind theme editors",
-        "date": "2026-05-19",
-        "url": "#"
-      },
-      {
-        "title": "Reconciling money at scale without a distributed transaction",
-        "date": "2026-02-11",
-        "url": "#"
-      }
-    ]
+    "roles": [],
+    "posts": []
   }
 }

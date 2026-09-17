@@ -13,12 +13,17 @@ export function GitHubActivity({ s }: { s: Settings }) {
 
         {s.metrics ? (
           <div className="grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-line bg-line md:grid-cols-4">
-            {[
-              [stats.commits.toLocaleString(), "Commits · 12 mo"],
-              [String(stats.repos), "Public repos"],
-              [stats.stars.toLocaleString(), "Stars"],
-              [String(stats.prs), "PRs merged"],
-            ].map(([v, l]) => (
+            {([
+              [stats.commits, "Commits · 12 mo"],
+              [stats.repos, "Public repos"],
+              [stats.stars, "Stars"],
+              [stats.prs, "PRs merged"],
+            ] as [number | null, string][])
+              // Omit anything unverified, and anything at zero: a row of noughts
+              // is worse than no row at all.
+              .filter(([v]) => typeof v === "number" && v > 0)
+              .map(([v, l]) => [(v as number).toLocaleString(), l])
+              .map(([v, l]) => (
               <div key={l} className="flex flex-col gap-1 bg-surf px-5 py-[18px]">
                 <b className="font-display text-[27px] font-bold leading-none tabular-nums">{v}</b>
                 <small className="font-mono text-[10px] uppercase tracking-[0.1em] text-mut">{l}</small>

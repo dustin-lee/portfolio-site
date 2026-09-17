@@ -6,6 +6,16 @@ export interface Repo {
   /** True while this row is placeholder content, before the first GitHub sync. */
   sample?: boolean;
 }
+/** Work with no public repo: private, professional, or under NDA. */
+export interface ManualProject {
+  title: string;
+  /** Optional, e.g. "Solo project" or "Backend lead". */
+  role?: string;
+  summary: string;
+  tech: string[];
+  /** A live demo or write-up. Omit for private work; the card then renders unlinked. */
+  url?: string;
+}
 export interface Role { when: string; org: string; role: string; summary: string }
 export interface Post { title: string; date: string; url: string }
 
@@ -16,6 +26,7 @@ export interface SiteData {
   languages: { name: string; pct: number; color: string }[];
   contributions: number[];
   repos: Repo[];
+  manualProjects: ManualProject[];
   roles: Role[];
   posts: Post[];
 }

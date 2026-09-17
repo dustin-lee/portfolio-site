@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------
+   Theme tokens. `@theme inline` maps Tailwind utilities onto CSS vars
+   that are re-declared per preset below, so switching [data-theme]
+   re-colours the whole site with no class changes.
+   ------------------------------------------------------------------ */
+@theme inline {
+  --color-bg:       var(--p-bg, #FAFAF7);
+  --color-surf:     var(--p-surf, #FFFFFF);
+  --color-ink:      var(--p-ink, #14171C);
+  --color-mut:      var(--p-mut, #5C6573);
+  --color-acc:      var(--p-acc, #1B4D3E);
+  --color-accink:   var(--p-acc-ink, #FFFFFF);
+  --color-line:     var(--p-line, #E5E3DC);
+  --color-soft:     var(--p-soft, #EEF1EE);
+
+  --font-display: var(--f-display), Georgia, serif;
+  --font-sans:    var(--f-sans), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono:    var(--f-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+/* Preset token values live in lib/theme.ts and are emitted at render time by
+   <ThemeStyle>, so the editor's swatches and the shipped CSS can never drift.
+   The fallbacks above keep the page readable if that <style> is ever absent. */
+
+/* ---- site primitives ---- */
+@layer components {
+  .wrap  { @apply mx-auto w-full max-w-[1180px] px-[22px] sm:px-11; }
+  .pad   { padding-block: var(--pad, 88px); }
+  .eyebrow { @apply font-mono text-[11px] font-medium tracking-[0.14em] uppercase text-acc; }
+  .h-sec { @apply font-display text-[clamp(22px,3.2vw,29px)] font-bold tracking-[-0.02em] text-balance; }
+  .pill  { @apply inline-flex items-center gap-1.5 rounded-full bg-acc px-[18px] py-[9px] text-sm font-semibold text-accink no-underline transition hover:brightness-110; }
+  .pill-ghost { @apply inline-flex items-center gap-1.5 rounded-full border border-line bg-transparent px-[18px] py-[9px] text-sm font-semibold text-ink no-underline transition hover:border-ink; }
+  .tag   { @apply rounded-md border border-line bg-surf px-2.5 py-[5px] font-mono text-xs tracking-[0.04em] text-mut; }
+}
+
+@media (max-width: 640px) { .pad { padding-block: calc(var(--pad, 88px) * 0.68); } }
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply bg-bg font-sans text-base text-ink antialiased; margin: 0; }
+  :focus-visible { outline: 2px solid var(--p-acc, #1B55C9); outline-offset: 3px; border-radius: 3px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+  }
+}
+
+/* tech strip */
+@keyframes slide { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.marquee { display:flex; white-space:nowrap; width:max-content; animation: slide var(--dur,34s) linear infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .marquee { animation: none; flex-wrap: wrap; width: auto; }
+}

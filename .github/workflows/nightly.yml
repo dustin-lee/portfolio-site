@@ -1,0 +1,57 @@
+name: Nightly GitHub sync
+
+on:
+  schedule:
+    - cron: "0 9 * * *"   # 02:00 America/Los_Angeles
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+
+      - name: Pull repos from the GitHub API
+        env:
+          # A repository variable may NOT be called GITHUB_USERNAME — GitHub reserves
+          # the GITHUB_ prefix. Defaults to the repo owner, so no setup is needed;
+          # set PORTFOLIO_GH_USER only if your portfolio is under a different account.
+          GITHUB_USERNAME: ${{ vars.PORTFOLIO_GH_USER || github.repository_owner }}
+          # The built-in token raises the rate limit to 1,000/hr with no setup.
+          # Provide GH_READ_TOKEN (a fine-grained PAT) for 5,000/hr.
+          GH_READ_TOKEN: ${{ secrets.GH_READ_TOKEN || github.token }}
+        run: npm run sync:github
+
+      - name: Commit the snapshot if it changed
+        run: |
+          if [[ -n "$(git status --porcelain content.snapshot.json)" ]]; then
+            git config user.name  "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add content.snapshot.json
+            git commit -m "chore: nightly GitHub snapshot"
+            git push
+          else
+            echo "No change."
+          fi
+
+      # The `secrets` context is not available in `if:` conditions — neither at job
+      # nor step level — so each optional step maps its secret into `env` first.
+      - name: Keep Supabase awake
+        env:
+          KEEPALIVE: ${{ secrets.SUPABASE_KEEPALIVE_URL }}
+        if: env.KEEPALIVE != ''
+        run: curl -fsS -o /dev/null "$KEEPALIVE" || true
+
+      - name: Trigger a Netlify deploy
+        env:
+          HOOK: ${{ secrets.NETLIFY_BUILD_HOOK }}
+        if: env.HOOK != ''
+        run: curl -fsS -X POST -o /dev/null "$HOOK"

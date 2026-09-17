@@ -1,0 +1,325 @@
+{
+  "generatedAt": "2026-09-14T00:00:00.000Z",
+  "config": {
+    "theme": "paper",
+    "sections": [
+      {
+        "id": "nav-1",
+        "type": "nav",
+        "visible": true,
+        "settings": {}
+      },
+      {
+        "id": "hero-1",
+        "type": "hero",
+        "visible": true,
+        "settings": {}
+      },
+      {
+        "id": "stack-1",
+        "type": "stack",
+        "visible": true,
+        "settings": {}
+      },
+      {
+        "id": "projects-1",
+        "type": "projects",
+        "visible": true,
+        "settings": {}
+      },
+      {
+        "id": "github-1",
+        "type": "github",
+        "visible": true,
+        "settings": {}
+      },
+      {
+        "id": "skills-1",
+        "type": "skills",
+        "visible": true,
+        "settings": {}
+      },
+      {
+        "id": "experience-1",
+        "type": "experience",
+        "visible": true,
+        "settings": {}
+      },
+      {
+        "id": "contact-1",
+        "type": "contact",
+        "visible": true,
+        "settings": {}
+      },
+      {
+        "id": "footer-1",
+        "type": "footer",
+        "visible": true,
+        "settings": {}
+      }
+    ]
+  },
+  "data": {
+    "profile": {
+      "name": "Dustin Lee",
+      "username": "dustin-lee",
+      "title": "Full-Stack Engineer",
+      "email": "hello@dustin.dev",
+      "github": "https://github.com/dustin-lee",
+      "linkedin": "https://linkedin.com/in/your-handle",
+      "site": "https://dustin.dev"
+    },
+    "stats": {
+      "commits": 1284,
+      "repos": 34,
+      "stars": 708,
+      "prs": 61,
+      "featured": 6,
+      "years": "7 yrs"
+    },
+    "languages": [
+      {
+        "name": "TypeScript",
+        "pct": 46,
+        "color": "#3178C6"
+      },
+      {
+        "name": "Go",
+        "pct": 21,
+        "color": "#00ADD8"
+      },
+      {
+        "name": "Python",
+        "pct": 16,
+        "color": "#4B8BBE"
+      },
+      {
+        "name": "Rust",
+        "pct": 10,
+        "color": "#D2703A"
+      },
+      {
+        "name": "Other",
+        "pct": 7,
+        "color": "#8C93A0"
+      }
+    ],
+    "contributions": [
+      0.6,
+      1,
+      0.3,
+      0,
+      0.6,
+      1,
+      1,
+      0.3,
+      0,
+      0.6,
+      1,
+      0.6,
+      0.3,
+      0,
+      0.6,
+      1,
+      1,
+      0.6,
+      0.3,
+      0,
+      0.6,
+      1,
+      0.3,
+      0.6,
+      1,
+      1,
+      0.3,
+      0,
+      0.6,
+      1,
+      0.6,
+      0,
+      0.3,
+      0.6,
+      1,
+      1,
+      0.6,
+      0.3,
+      0,
+      0.6,
+      1,
+      0.3,
+      0.6,
+      1,
+      1,
+      0,
+      0.3,
+      0.6,
+      1,
+      0.6,
+      0.3,
+      0,
+      0.6,
+      1,
+      1,
+      0.6,
+      0,
+      0.3,
+      0.6,
+      1,
+      0.3,
+      0.6,
+      1,
+      1,
+      0.6,
+      0.3,
+      0,
+      0.6,
+      1,
+      0.6,
+      0.3,
+      0,
+      0.6,
+      1,
+      1,
+      0.3,
+      0.6,
+      1,
+      0.6,
+      0,
+      0.3,
+      0.6,
+      1,
+      1,
+      0.6,
+      0.3,
+      0,
+      0.6,
+      1,
+      0.6,
+      1
+    ],
+    "repos": [
+      {
+        "name": "ledger-sync",
+        "description": "Double-entry reconciliation engine that diffs bank feeds against an internal ledger nightly.",
+        "language": "TypeScript",
+        "color": "#3178C6",
+        "stars": 184,
+        "topics": [
+          "fintech",
+          "postgres",
+          "queues"
+        ],
+        "url": "#",
+        "hidden": false,
+        "sample": true
+      },
+      {
+        "name": "pulse-metrics",
+        "description": "Drop-in RUM collector shipping Core Web Vitals to ClickHouse in 3 kB gzipped.",
+        "language": "JavaScript",
+        "color": "#E8B339",
+        "stars": 241,
+        "topics": [
+          "observability",
+          "performance"
+        ],
+        "url": "#",
+        "hidden": false,
+        "sample": true
+      },
+      {
+        "name": "atlas-ui",
+        "description": "Headless component primitives with a token pipeline that compiles to Tailwind and CSS variables.",
+        "language": "TypeScript",
+        "color": "#3178C6",
+        "stars": 96,
+        "topics": [
+          "react",
+          "design-systems"
+        ],
+        "url": "#",
+        "hidden": false,
+        "sample": true
+      },
+      {
+        "name": "curbside",
+        "description": "Route-optimizing pickup scheduler \u2014 OR-Tools solver behind a Go API, 40k stops per run.",
+        "language": "Go",
+        "color": "#00ADD8",
+        "stars": 62,
+        "topics": [
+          "optimization",
+          "api"
+        ],
+        "url": "#",
+        "hidden": false,
+        "sample": true
+      },
+      {
+        "name": "sift",
+        "description": "CLI that turns messy CSV exports into typed Parquet with inferred schemas and a diff report.",
+        "language": "Rust",
+        "color": "#D2703A",
+        "stars": 44,
+        "topics": [
+          "cli",
+          "data"
+        ],
+        "url": "#",
+        "hidden": false,
+        "sample": true
+      },
+      {
+        "name": "harbor-deploy",
+        "description": "GitHub Action that builds, signs and promotes containers across three environments.",
+        "language": "Shell",
+        "color": "#89E051",
+        "stars": 31,
+        "topics": [
+          "ci-cd",
+          "devops"
+        ],
+        "url": "#",
+        "hidden": false,
+        "sample": true
+      }
+    ],
+    "roles": [
+      {
+        "when": "2024 \u2014 now",
+        "org": "Northbeam Systems",
+        "role": "Senior Software Engineer",
+        "summary": "Led the migration of a monolith checkout path onto event-driven services; cut p95 latency from 820 ms to 190 ms."
+      },
+      {
+        "when": "2021 \u2014 2024",
+        "org": "Calder Labs",
+        "role": "Full-Stack Engineer",
+        "summary": "Built the internal design system and the CI pipeline behind it \u2014 40+ consumers, zero-downtime releases twice a week."
+      },
+      {
+        "when": "2019 \u2014 2021",
+        "org": "Freelance",
+        "role": "Web Engineer",
+        "summary": "Shipped production React and Node work for six early-stage teams, from first commit through launch."
+      }
+    ],
+    "posts": [
+      {
+        "title": "Why your build step should own the GitHub API, not your browser",
+        "date": "2026-07-02",
+        "url": "#"
+      },
+      {
+        "title": "A section schema is the whole trick behind theme editors",
+        "date": "2026-05-19",
+        "url": "#"
+      },
+      {
+        "title": "Reconciling money at scale without a distributed transaction",
+        "date": "2026-02-11",
+        "url": "#"
+      }
+    ]
+  }
+}

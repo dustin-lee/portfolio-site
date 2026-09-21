@@ -7,20 +7,25 @@
         "id": "nav-1",
         "type": "nav",
         "visible": true,
-        "settings": {}
+        "settings": {
+          "logo": "dustin.dev",
+          "links": "Work, Skills, Contact",
+          "cta": "",
+          "sticky": true
+        }
       },
       {
         "id": "hero-1",
         "type": "hero",
         "visible": true,
         "settings": {
-          "layout": "Stacked left",
-          "eyebrow": "",
-          "headline": "Dustin Lee",
-          "sub": "Software engineer. This site is a work in progress.",
-          "cta": "",
+          "layout": "Split",
+          "eyebrow": "Full-stack developer",
+          "headline": "I build the tools that run warehouses and storefronts.",
+          "sub": "React, Node and Postgres applied to real operations: receiving and shipping stock across a multi-client warehouse, and turning Shopify orders into a production queue.",
+          "cta": "See the work",
           "cta2": "GitHub",
-          "portrait": false,
+          "portrait": true,
           "stats": false,
           "pad": 104
         }
@@ -30,8 +35,8 @@
         "type": "stack",
         "visible": true,
         "settings": {
-          "style": "Static grid",
-          "items": "JavaScript, React, Vite, Node.js, Express, Supabase, PostgreSQL, Shopify Admin API, Shopify Webhooks, Polaris, React Router, pdf.js, Tesseract.js, SheetJS, Railway, Git",
+          "style": "Marquee",
+          "items": "JavaScript, React, Vite, React Router, Node.js, Express, PostgreSQL, Supabase, Supabase Auth, Shopify Admin API, Shopify Webhooks, Polaris, pdf.js, Tesseract.js, SheetJS, Railway, Git",
           "speed": 34
         }
       },
@@ -45,7 +50,7 @@
           "cols": 2,
           "count": 2,
           "stars": false,
-          "topics": false,
+          "topics": true,
           "pad": 90
         }
       },
@@ -58,8 +63,13 @@
       {
         "id": "skills-1",
         "type": "skills",
-        "visible": false,
-        "settings": {}
+        "visible": true,
+        "settings": {
+          "title": "Skills",
+          "style": "Chips",
+          "pad": 80,
+          "groups": "Languages: JavaScript, SQL, Swift, Python\nFrontend: React, Vite, React Router, Shopify Polaris\nBackend: Node.js, Express, PostgreSQL, Supabase, Railway\nIntegrations: Shopify Admin API, Webhooks, pdf.js, Tesseract.js, SheetJS"
+        }
       },
       {
         "id": "experience-1",
@@ -72,11 +82,11 @@
         "type": "contact",
         "visible": true,
         "settings": {
-          "layout": "Card",
-          "headline": "Get in touch",
-          "sub": "The best way to reach me is email.",
+          "layout": "Band",
+          "headline": "Hiring for something hard?",
+          "sub": "Email is the fastest way to reach me.",
           "email": "dustin.lee.vc@gmail.com",
-          "cta": "Email me",
+          "cta": "Send a note",
           "pad": 72
         }
       },
@@ -98,7 +108,7 @@
       "title": "Full-Stack Engineer",
       "email": "dustin.lee.vc@gmail.com",
       "github": "https://github.com/dustin-lee",
-      "linkedin": "https://linkedin.com/in/your-handle",
+      "linkedin": "",
       "site": "https://dustin.dev"
     },
     "stats": {
@@ -434,32 +444,35 @@
     "manualProjects": [
       {
         "title": "Warehouse Management System",
-        "role": "Solo build · 59 commits",
-        "summary": "Receiving, stock allocation, shipping and per-carton billing for a warehouse serving several clients. Parses pull sheets from PDFs and spreadsheets with an OCR fallback, and leaves anything it cannot read confidently blank instead of guessing. Records are stored individually so staff editing at once cannot overwrite each other, with role-based logins enforced in the database.",
+        "summary": "Receiving, FIFO allocation, shipping and billing for a multi-client warehouse. Reads pull sheets from PDFs with an OCR fallback, and saves each record with a revision check so concurrent edits conflict instead of overwriting.",
         "tech": [
           "React",
-          "Vite",
           "Supabase",
-          "PostgreSQL",
-          "pdf.js",
           "Tesseract.js",
-          "SheetJS"
-        ]
+          "pdf.js",
+          "Vite",
+          "SheetJS",
+          "PostgreSQL",
+          "Supabase Auth"
+        ],
+        "language": "JavaScript",
+        "color": "#E8B339"
       },
       {
         "title": "Shopify Cut Manager",
-        "role": "Solo build · custom Shopify app",
-        "summary": "Turns incoming Shopify orders into a production queue. Orders sync in real time through HMAC-verified webhooks, every product tracks ordered, cut and remaining, and a daily batch list shows what to cut next with a link to its design file. Built to extend toward direct cutter automation.",
+        "summary": "Custom Shopify app that turns incoming orders into a production queue. Webhooks are HMAC-verified and upserted idempotently, so Shopify retries never double-count a line item.",
         "tech": [
           "Node.js",
           "Express",
           "Shopify Admin API",
-          "Webhooks",
-          "Supabase",
-          "React",
           "Polaris",
+          "Supabase",
+          "PostgreSQL",
+          "React",
           "Railway"
-        ]
+        ],
+        "language": "JavaScript",
+        "color": "#E8B339"
       }
     ]
   }

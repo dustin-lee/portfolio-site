@@ -13,6 +13,9 @@ export interface ManualProject {
   role?: string;
   summary: string;
   tech: string[];
+  /** Primary language, shown with a colour dot like a repo card. */
+  language?: string;
+  color?: string;
   /** A live demo or write-up. Omit for private work; the card then renders unlinked. */
   url?: string;
 }

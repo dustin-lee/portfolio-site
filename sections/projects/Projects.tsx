@@ -13,96 +13,94 @@ const COLS: Record<number, string> = {
   3: "grid-cols-1 md:grid-cols-2 lg:grid-cols-3",
 };
 
-const CARD =
-  "flex min-w-0 flex-col gap-2.5 rounded-xl border border-line bg-surf p-5 no-underline";
+interface CardData {
+  key: string;
+  title: string;
+  description: string;
+  language?: string | null;
+  color?: string;
+  chips: string[];
+  corner: React.ReactNode;
+  href?: string;
+}
+
+/** The original repo card. Manual entries render through it too, so both look identical. */
+function Card({ c }: { c: CardData }) {
+  const cls = "flex min-w-0 flex-col gap-2.5 rounded-xl border border-line bg-surf p-5 no-underline";
+  const body = (
+    <>
+      <div className="flex items-center justify-between gap-2.5">
+        <h3 className="truncate font-mono text-base font-bold tracking-[-0.01em]">{c.title}</h3>
+        {c.corner}
+      </div>
+      <p className="text-sm leading-relaxed text-mut">{c.description}</p>
+      <div className="mt-auto flex flex-wrap items-center gap-2.5 pt-1">
+        {c.language ? (
+          <span className="inline-flex items-center gap-1.5 font-mono text-xs text-mut">
+            <i className="block h-2 w-2 rounded-full" style={{ background: c.color }} />{c.language}
+          </span>
+        ) : null}
+        {c.chips.length ? (
+          <span className="flex flex-wrap gap-1.5">
+            {c.chips.map((t) => (
+              <span key={t} className="rounded bg-soft px-[7px] py-0.5 font-mono text-[11px] text-mut">{t}</span>
+            ))}
+          </span>
+        ) : null}
+      </div>
+    </>
+  );
+  // A card only becomes a link when a visitor can actually open the destination.
+  return c.href ? (
+    <a href={c.href} className={`${cls} transition-colors hover:border-acc`}>{body}</a>
+  ) : (
+    <div className={cls}>{body}</div>
+  );
+}
 
 export function Projects({ s }: { s: Settings }) {
   const manual = s.source === "Manual";
   const count = Number(s.count);
 
-  /* ---- manual entries: work that has no public repo to point at ---- */
-  if (manual) {
-    const items = data.manualProjects.slice(0, count);
-    return (
-      <section id="work" className="border-b border-line">
-        <div className="wrap pad" style={{ ["--pad" as string]: `${s.pad}px` }}>
-          <h2 className="h-sec mb-[30px]">{String(s.title)}</h2>
-          <div className={`grid gap-4 ${COLS[Number(s.cols)] ?? COLS[2]}`}>
-            {items.map((p) => {
-              const Inner = (
-                <>
-                  <div className="flex items-start justify-between gap-2.5">
-                    <h3 className="font-display text-[17px] font-bold tracking-[-0.02em]">{p.title}</h3>
-                    {p.url ? null : (
-                      <span className="flex-none rounded border border-line px-1.5 py-0.5 font-mono text-[10px] uppercase tracking-[0.08em] text-mut">
-                        Private
-                      </span>
-                    )}
-                  </div>
-                  {p.role ? <p className="text-[13px] font-semibold text-acc">{p.role}</p> : null}
-                  <p className="text-sm leading-relaxed text-mut">{p.summary}</p>
-                  {p.tech.length ? (
-                    <div className="mt-auto flex flex-wrap gap-1.5 pt-1">
-                      {p.tech.map((t) => (
-                        <span key={t} className="rounded bg-soft px-[7px] py-0.5 font-mono text-[11px] text-mut">{t}</span>
-                      ))}
-                    </div>
-                  ) : null}
-                </>
-              );
-              // Only a linkable project becomes a link. A private one is a plain
-              // card, because a link a visitor cannot open is worse than no link.
-              return p.url ? (
-                <a key={p.title} href={p.url} className={`${CARD} transition-colors hover:border-acc`}>{Inner}</a>
-              ) : (
-                <div key={p.title} className={CARD}>{Inner}</div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-    );
-  }
+  const cards: CardData[] = manual
+    ? data.manualProjects.slice(0, count).map((p) => ({
+        key: p.title,
+        title: p.title,
+        description: p.summary,
+        language: p.language,
+        color: p.color,
+        chips: s.topics ? p.tech.slice(0, 4) : [],
+        corner: p.url ? null : (
+          <span className="flex-none font-mono text-[11px] uppercase tracking-[0.06em] text-mut">Private</span>
+        ),
+        href: p.url,
+      }))
+    : data.repos.filter((r) => !r.hidden).slice(0, count).map((r) => ({
+        key: r.name,
+        title: r.name,
+        description: r.description,
+        language: r.language,
+        color: r.color,
+        chips: s.topics ? r.topics.slice(0, 3) : [],
+        corner: s.stars && r.stars > 0 ? (
+          <span className="inline-flex flex-none items-center gap-1 font-mono text-xs tabular-nums text-mut"><Star />{r.stars}</span>
+        ) : null,
+        href: r.url,
+      }));
 
-  /* ---- repos pulled from GitHub at build time ---- */
-  const repos = data.repos.filter((r) => !r.hidden).slice(0, count);
+  const meta = manual
+    ? `${cards.length} private ${cards.length === 1 ? "repository" : "repositories"} · solo builds`
+    : `github.com/${data.profile.username} · curated`;
+
   return (
     <section id="work" className="border-b border-line">
       <div className="wrap pad" style={{ ["--pad" as string]: `${s.pad}px` }}>
         <div className="mb-[30px] flex flex-wrap items-baseline justify-between gap-3.5">
           <h2 className="h-sec">{String(s.title)}</h2>
-          <span className="font-mono text-[11px] tracking-[0.05em] text-mut">
-            github.com/{data.profile.username} · curated
-          </span>
+          <span className="font-mono text-[11px] tracking-[0.05em] text-mut">{meta}</span>
         </div>
         <div className={`grid gap-4 ${COLS[Number(s.cols)] ?? COLS[2]}`}>
-          {repos.map((r) => (
-            <a key={r.name} href={r.url} className={`${CARD} transition-colors hover:border-acc`}>
-              <div className="flex items-center justify-between gap-2.5">
-                <h3 className="truncate font-mono text-base font-bold tracking-[-0.01em]">{r.name}</h3>
-                {s.stars && r.stars > 0 ? (
-                  <span className="inline-flex flex-none items-center gap-1 font-mono text-xs tabular-nums text-mut">
-                    <Star />{r.stars}
-                  </span>
-                ) : null}
-              </div>
-              <p className="text-sm leading-relaxed text-mut">{r.description}</p>
-              <div className="mt-auto flex flex-wrap items-center gap-2.5 pt-1">
-                {r.language ? (
-                  <span className="inline-flex items-center gap-1.5 font-mono text-xs text-mut">
-                    <i className="block h-2 w-2 rounded-full" style={{ background: r.color }} />{r.language}
-                  </span>
-                ) : null}
-                {s.topics ? (
-                  <span className="flex flex-wrap gap-1.5">
-                    {r.topics.slice(0, 3).map((t) => (
-                      <span key={t} className="rounded bg-soft px-[7px] py-0.5 font-mono text-[11px] text-mut">{t}</span>
-                    ))}
-                  </span>
-                ) : null}
-              </div>
-            </a>
-          ))}
+          {cards.map((c) => <Card key={c.key} c={c} />)}
         </div>
       </div>
     </section>

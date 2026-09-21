@@ -31,15 +31,23 @@
         "visible": true,
         "settings": {
           "style": "Static grid",
-          "items": "JavaScript, Swift, Python, HTML, CSS, SQL, Git",
+          "items": "JavaScript, React, Vite, Node.js, Express, Supabase, PostgreSQL, Shopify Admin API, Shopify Webhooks, Polaris, React Router, pdf.js, Tesseract.js, SheetJS, Railway, Git",
           "speed": 34
         }
       },
       {
         "id": "projects-1",
         "type": "projects",
-        "visible": false,
-        "settings": {}
+        "visible": true,
+        "settings": {
+          "title": "Selected work",
+          "source": "Manual",
+          "cols": 2,
+          "count": 2,
+          "stars": false,
+          "topics": false,
+          "pad": 90
+        }
       },
       {
         "id": "github-1",
@@ -423,6 +431,36 @@
     ],
     "roles": [],
     "posts": [],
-    "manualProjects": []
+    "manualProjects": [
+      {
+        "title": "Warehouse Management System",
+        "role": "Solo build · 59 commits",
+        "summary": "Receiving, stock allocation, shipping and per-carton billing for a warehouse serving several clients. Parses pull sheets from PDFs and spreadsheets with an OCR fallback, and leaves anything it cannot read confidently blank instead of guessing. Records are stored individually so staff editing at once cannot overwrite each other, with role-based logins enforced in the database.",
+        "tech": [
+          "React",
+          "Vite",
+          "Supabase",
+          "PostgreSQL",
+          "pdf.js",
+          "Tesseract.js",
+          "SheetJS"
+        ]
+      },
+      {
+        "title": "Shopify Cut Manager",
+        "role": "Solo build · custom Shopify app",
+        "summary": "Turns incoming Shopify orders into a production queue. Orders sync in real time through HMAC-verified webhooks, every product tracks ordered, cut and remaining, and a daily batch list shows what to cut next with a link to its design file. Built to extend toward direct cutter automation.",
+        "tech": [
+          "Node.js",
+          "Express",
+          "Shopify Admin API",
+          "Webhooks",
+          "Supabase",
+          "React",
+          "Polaris",
+          "Railway"
+        ]
+      }
+    ]
   }
 }

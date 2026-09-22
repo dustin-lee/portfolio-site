@@ -8,7 +8,7 @@
         "type": "nav",
         "visible": true,
         "settings": {
-          "logo": "dustin.dev",
+          "logo": "Dustin Lee",
           "links": "Work, Skills, Contact",
           "cta": "",
           "sticky": true
@@ -109,7 +109,7 @@
       "email": "dustin.lee.vc@gmail.com",
       "github": "https://github.com/dustin-lee",
       "linkedin": "",
-      "site": "https://dustin.dev"
+      "site": "https://dustinlee.netlify.app"
     },
     "stats": {
       "commits": 0,

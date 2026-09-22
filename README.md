@@ -2,7 +2,7 @@
 
 A portfolio site with a built in theme editor, so the content stays current without a code change.
 
-**Live: [dustin.dev](https://dustin.dev)** · [GitHub](https://github.com/dustin-lee)
+**Live: [dustinlee.netlify.app](https://dustinlee.netlify.app)** · [GitHub](https://github.com/dustin-lee)
 
 <!-- Regenerate on your own machine before pushing: npm run build, npm start, npm run screenshot -->
 ![The site](docs/media/site.png)
@@ -50,7 +50,7 @@ No CMS. Sanity would have been faster and is better software than what I wrote, 
 Lighthouse, desktop preset, production build measured on localhost. The 96 is a blocked webfont request in the sandbox it was run in. Re run against the deployed URL:
 
 ```bash
-npm run lighthouse --url=https://dustin.dev
+npm run lighthouse --url=https://dustinlee.netlify.app
 ```
 
 CI also fails the build if the public page's JavaScript grows past its budget, currently 169 kB gzipped, which is Next 16's floor for a page with no client components.
